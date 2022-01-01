@@ -36,7 +36,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="tfId" alignment="0" max="32767" attributes="0"/>
-                          <Component id="tfNamaBarang" alignment="0" pref="374" max="32767" attributes="0"/>
+                          <Component id="tfNamaBarang" alignment="0" pref="381" max="32767" attributes="0"/>
                           <Component id="cbJenisBarang" alignment="0" max="32767" attributes="0"/>
                           <Component id="tfHarga" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -107,14 +107,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Id Barang"/>
+        <Property name="text" type="java.lang.String" value="Id Buku"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfId">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nama Barang"/>
+        <Property name="text" type="java.lang.String" value="Nama Buku"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfNamaBarang">
@@ -138,6 +138,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbJenisBarangActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

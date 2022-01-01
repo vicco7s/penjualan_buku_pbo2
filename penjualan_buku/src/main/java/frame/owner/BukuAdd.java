@@ -4,6 +4,11 @@
  */
 package frame.owner;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+import model.Buku;
+import model.JenisBuku;
+
 /**
  *
  * @author cero
@@ -15,6 +20,10 @@ public class BukuAdd extends javax.swing.JFrame {
      */
     public BukuAdd() {
         initComponents();
+    }
+
+    BukuAdd(Buku buku) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -43,9 +52,9 @@ public class BukuAdd extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel2.setText("Input Data Buku");
 
-        jLabel3.setText("Id Barang");
+        jLabel3.setText("Id Buku");
 
-        jLabel1.setText("Nama Barang");
+        jLabel1.setText("Nama Buku");
 
         tfNamaBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +65,11 @@ public class BukuAdd extends javax.swing.JFrame {
         jLabel4.setText("Jenis Barang");
 
         cbJenisBarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbJenisBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbJenisBarangActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Harga");
 
@@ -97,7 +111,7 @@ public class BukuAdd extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfId)
-                            .addComponent(tfNamaBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                            .addComponent(tfNamaBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
                             .addComponent(cbJenisBarang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfHarga)))
                     .addGroup(layout.createSequentialGroup()
@@ -149,42 +163,46 @@ public class BukuAdd extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNamaBarangActionPerformed
 
     private void tfHargaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHargaKeyTyped
-//        char enter = evt.getKeyChar();
-//        if (!Character.isDigit(enter) && enter != KeyEvent.VK_PERIOD) {
-//            evt.consume();
-//            //            System.out.println(enter);
-//        }
+        char enter = evt.getKeyChar();
+        if (!Character.isDigit(enter) && enter != KeyEvent.VK_PERIOD) {
+            evt.consume();
+            //            System.out.println(enter);
+        }
     }//GEN-LAST:event_tfHargaKeyTyped
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-//
-//        JenisBarang jbComboBox = ((JenisBarang) cbJenisBarang.getSelectedItem());
-//
-//        Barang barang = new Barang();
-//        barang.setNamaBarang(tfNamaBarang.getText());
-//        barang.setJenisBarang(jbComboBox);
-//        barang.setHarga(Float.parseFloat(tfHarga.getText()));
-//
-//        if(tfId.getText().equals("NULL")){
-//            if(barang.create()){
-//                dispose();
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Gagal Insert Data");
-//            }
-//        } else {
-//            barang.setId(Integer.parseInt(tfId.getText()));
-//            if(barang.update()){
-//                dispose();
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Gagal Update Data");
-//            }
-//        }
+
+        JenisBuku jbComboBox = ((JenisBuku) cbJenisBarang.getSelectedItem());
+
+        Buku buku = new Buku();
+        buku.setNamaBuku(tfNamaBarang.getText());
+        buku.setJenisBuku(jbComboBox);
+        buku.setHarga(Float.parseFloat(tfHarga.getText()));
+
+        if(tfId.getText().equals("NULL")){
+            if(buku.create()){
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Gagal Insert Data");
+            }
+        } else {
+            buku.setId(Integer.parseInt(tfId.getText()));
+            if(buku.update()){
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Gagal Update Data");
+            }
+        }
 
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void cbJenisBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJenisBarangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbJenisBarangActionPerformed
 
     /**
      * @param args the command line arguments
