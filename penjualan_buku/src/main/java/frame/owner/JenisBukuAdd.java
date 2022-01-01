@@ -4,6 +4,9 @@
  */
 package frame.owner;
 
+import javax.swing.JOptionPane;
+import model.JenisBuku;
+
 /**
  *
  * @author cero
@@ -13,8 +16,25 @@ public class JenisBukuAdd extends javax.swing.JFrame {
     /**
      * Creates new form JenisBukuAdd
      */
+    public String status;
+    
     public JenisBukuAdd() {
         initComponents();
+        setLocationRelativeTo(null);
+        tfId.setEnabled(false);
+        tfId.setText("NULL");
+        tfNamajenisbuku.requestFocus();
+        status = "TAMBAH";
+    }
+    
+    public JenisBukuAdd(JenisBuku jenisBuku) {
+        initComponents();
+        setLocationRelativeTo(null);
+        tfId.setEnabled(false);
+        tfId.setText(String.valueOf(jenisBuku.getId()));
+        tfNamajenisbuku.setText(jenisBuku.getNamajenisbuku());
+        tfNamajenisbuku.requestFocus();
+        status = "UBAH";
     }
 
     /**
@@ -29,7 +49,7 @@ public class JenisBukuAdd extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        tfNamajenisbarang = new javax.swing.JTextField();
+        tfNamajenisbuku = new javax.swing.JTextField();
         tfId = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -39,7 +59,7 @@ public class JenisBukuAdd extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel2.setText("Data Jenis Buku");
 
-        jLabel3.setText("Id Jenis Barang");
+        jLabel3.setText("Id Jenis Buku");
 
         jLabel1.setText("Nama Jenis Barang");
 
@@ -75,7 +95,7 @@ public class JenisBukuAdd extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfId)
-                            .addComponent(tfNamajenisbarang, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)))
+                            .addComponent(tfNamajenisbuku, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton6)
@@ -95,7 +115,7 @@ public class JenisBukuAdd extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tfNamajenisbarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNamajenisbuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
@@ -103,27 +123,29 @@ public class JenisBukuAdd extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
+        tfNamajenisbuku.getAccessibleContext().setAccessibleName("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-//        JenisBarang jenisBarang = new JenisBarang();
-//        jenisBarang.setNamajenisbarang(tfNamajenisbarang.getText());
-//
-//        if(status.equals("TAMBAH")){
-//            if(jenisBarang.create()){
-//                dispose();
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Gagal Insert Data");
-//            }
-//        } else {
-//            jenisBarang.setId(Integer.parseInt(tfId.getText()));
-//            if(jenisBarang.update()){
-//                dispose();
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Gagal Update Data");
-//            }
-//        }
+        JenisBuku jenisBuku = new JenisBuku();
+        jenisBuku.setNamajenisbuku(tfNamajenisbuku.getText());
+
+        if(status.equals("TAMBAH")){
+            if(jenisBuku.create()){
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Gagal Insert Data");
+            }
+        } else {
+            jenisBuku.setId(Integer.parseInt(tfId.getText()));
+            if(jenisBuku.update()){
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Gagal Update Data");
+            }
+        }
 
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -173,6 +195,6 @@ public class JenisBukuAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField tfId;
-    private javax.swing.JTextField tfNamajenisbarang;
+    private javax.swing.JTextField tfNamajenisbuku;
     // End of variables declaration//GEN-END:variables
 }

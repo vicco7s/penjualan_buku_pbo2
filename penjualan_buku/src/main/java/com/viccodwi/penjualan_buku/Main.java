@@ -31,5 +31,7 @@ public class Main {
                 mainkasir.setVisible(true);
             }
         }
+//        BarangViewFrame barangViewFrame = new BarangViewFrame();
+//        barangViewFrame.setVisible(true);
     }
 }

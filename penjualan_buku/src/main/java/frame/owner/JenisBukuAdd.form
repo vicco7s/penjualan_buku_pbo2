@@ -39,7 +39,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="tfId" alignment="0" max="32767" attributes="0"/>
-                          <Component id="tfNamajenisbarang" alignment="0" pref="304" max="32767" attributes="0"/>
+                          <Component id="tfNamajenisbuku" alignment="0" pref="304" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -66,7 +66,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfNamajenisbarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfNamajenisbuku" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -89,7 +89,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Id Jenis Barang"/>
+        <Property name="text" type="java.lang.String" value="Id Jenis Buku"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -97,7 +97,10 @@
         <Property name="text" type="java.lang.String" value="Nama Jenis Barang"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfNamajenisbarang">
+    <Component class="javax.swing.JTextField" name="tfNamajenisbuku">
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfId">
     </Component>

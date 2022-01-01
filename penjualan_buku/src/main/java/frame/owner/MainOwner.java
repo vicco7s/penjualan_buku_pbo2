@@ -187,6 +187,11 @@ public class MainOwner extends javax.swing.JFrame {
         });
 
         jButton2.setText("Buku");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Pengguna");
 
@@ -199,7 +204,7 @@ public class MainOwner extends javax.swing.JFrame {
         jMenuItem2.setText("Pengguna");
         jMenu2.add(jMenuItem2);
 
-        jMenuItem3.setText("Jenis Barang");
+        jMenuItem3.setText("Jenis Buku");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -207,7 +212,12 @@ public class MainOwner extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem3);
 
-        jMenuItem4.setText("Barang");
+        jMenuItem4.setText("Buku");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar2.add(jMenu2);
@@ -312,15 +322,13 @@ public class MainOwner extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.getAccessibleContext().setAccessibleName("Jenis Buku");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-//        JenisBarangViewFrame jenisBarangViewFrame = new JenisBarangViewFrame();
-//        jenisBarangViewFrame.setLocationRelativeTo(null);
-//        jenisBarangViewFrame.setVisible(true);
+        JenisBukuView jenisBukuView = new JenisBukuView();
+        jenisBukuView.setLocationRelativeTo(null);
+        jenisBukuView.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -340,10 +348,22 @@ public class MainOwner extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        JenisBarangViewFrame jenisBarangViewFrame = new JenisBarangViewFrame();
-//        jenisBarangViewFrame.setLocationRelativeTo(null);
-//        jenisBarangViewFrame.setVisible(true);
+        JenisBukuView jenisBukuView = new JenisBukuView();
+        jenisBukuView.setLocationRelativeTo(null);
+        jenisBukuView.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        BukuView bukuView = new BukuView();
+        bukuView.setLocationRelativeTo(null);
+        bukuView.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        BukuView bukuView = new BukuView();
+        bukuView.setLocationRelativeTo(null);
+        bukuView.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -395,14 +415,11 @@ public class MainOwner extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
