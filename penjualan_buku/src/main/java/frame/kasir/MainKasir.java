@@ -4,6 +4,9 @@
  */
 package frame.kasir;
 
+import frame.Login;
+import libs.Pref;
+
 /**
  *
  * @author cero
@@ -275,11 +278,11 @@ public class MainKasir extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-//        Pref pref = new Pref();
-//        pref.hapus();
-//        dispose();
-//        LoginFrame loginFrame = new LoginFrame();
-//        loginFrame.setVisible(true);
+        Pref pref = new Pref();
+        pref.hapus();
+        dispose();
+        Login login = new Login();
+        login.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

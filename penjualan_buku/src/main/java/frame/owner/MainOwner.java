@@ -4,6 +4,9 @@
  */
 package frame.owner;
 
+import frame.Login;
+import libs.Pref;
+
 /**
  *
  * @author cero
@@ -325,11 +328,11 @@ public class MainOwner extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-//        Pref pref = new Pref();
-//        pref.hapus();
-//        dispose();
-//        LoginFrame loginFrame = new LoginFrame();
-//        loginFrame.setVisible(true);
+        Pref pref = new Pref();
+        pref.hapus();
+        dispose();
+        Login login = new Login();
+        login.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed

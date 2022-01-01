@@ -4,6 +4,12 @@
  */
 package frame;
 
+import frame.kasir.MainKasir;
+import frame.owner.MainOwner;
+import javax.swing.JOptionPane;
+import libs.Pref;
+import model.Pengguna;
+
 /**
  *
  * @author cero
@@ -112,7 +118,29 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfUsernameActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Pengguna pengguna = new Pengguna();
         
+        pengguna.setUsername (jtfUsername.getText());
+        pengguna.setPassword(new String(jtfPassword.getPassword()));
+        if (pengguna.login()) {
+            
+            Pref pref = new Pref();
+            
+            pref.simpan(pengguna);
+            
+            if (pengguna.isIsAdmin()) {
+                MainOwner mainowner = new MainOwner();
+                mainowner.setLocationRelativeTo(null);
+                mainowner.setVisible(true);
+            }else{
+                MainKasir mainkasir = new MainKasir();
+                mainkasir.setLocationRelativeTo(null);
+                mainkasir.setVisible(true);
+            }
+            dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Login tidak sesuai");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
