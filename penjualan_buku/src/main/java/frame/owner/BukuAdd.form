@@ -36,8 +36,8 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="tfId" alignment="0" max="32767" attributes="0"/>
-                          <Component id="tfNamaBarang" alignment="0" pref="381" max="32767" attributes="0"/>
-                          <Component id="cbJenisBarang" alignment="0" max="32767" attributes="0"/>
+                          <Component id="tfNamaBuku" alignment="0" pref="381" max="32767" attributes="0"/>
+                          <Component id="cbJenisBuku" alignment="0" max="32767" attributes="0"/>
                           <Component id="tfHarga" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -74,11 +74,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="tfNamaBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tfNamaBuku" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cbJenisBarang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbJenisBuku" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -117,9 +117,9 @@
         <Property name="text" type="java.lang.String" value="Nama Buku"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfNamaBarang">
+    <Component class="javax.swing.JTextField" name="tfNamaBuku">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNamaBarangActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNamaBukuActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -127,7 +127,7 @@
         <Property name="text" type="java.lang.String" value="Jenis Barang"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cbJenisBarang">
+    <Component class="javax.swing.JComboBox" name="cbJenisBuku">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -139,7 +139,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbJenisBarangActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbJenisBukuActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

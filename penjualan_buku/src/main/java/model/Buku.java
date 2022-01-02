@@ -168,7 +168,7 @@ public class Buku {
         
         String selectSQL = "SELECT buku.*, jenisbuku.namajenisbuku FROM buku \n" +
 "INNER JOIN jenisbuku ON buku.idjenisbuku= jenisbuku.id "
-                + "WHERE baruku.id = ?" ;
+                + "WHERE buku.id = ?" ;
         
         this.database = new Database();
         this.connection = this.database.getConnection();

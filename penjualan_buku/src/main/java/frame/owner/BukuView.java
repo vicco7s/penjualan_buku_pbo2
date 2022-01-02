@@ -47,6 +47,11 @@ public class BukuView extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel2.setText("Data Buku");
@@ -230,6 +235,12 @@ public class BukuView extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        Buku buku = new Buku();
+        ArrayList<Buku> list = buku.read();
+        tampilkanData(list);
+    }//GEN-LAST:event_formWindowActivated
 
         private void tampilkanData(ArrayList<Buku> list) {
              DefaultTableModel model = (DefaultTableModel) jTable1.getModel();

@@ -5,6 +5,8 @@
 package frame.owner;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import model.Buku;
 import model.JenisBuku;
@@ -18,12 +20,53 @@ public class BukuAdd extends javax.swing.JFrame {
     /**
      * Creates new form BukuAdd
      */
+//    public String status;
+    
     public BukuAdd() {
         initComponents();
+        setLocationRelativeTo(null);
+        isiDataCb();
+        tfId.setEnabled(false);
+        tfId.setText("NULL");
+        tfNamaBuku.requestFocus();
+//        status = "TAMBAH";
     }
 
-    BukuAdd(Buku buku) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public BukuAdd(Buku buku) {
+       initComponents();
+        setLocationRelativeTo(null);
+        isiDataCb();
+        tfId.setEnabled(false);
+        tfId.setText(String.valueOf(buku.getId()));
+        
+        buku.find();
+        tfNamaBuku.setText(buku.getNamaBuku());
+        tfHarga.setText(String.valueOf(buku.getHarga()));
+        
+        for (int i = 0; i < cbJenisBuku.getItemCount(); i++) {
+            JenisBuku jenisBuku = new JenisBuku();
+            cbJenisBuku.setSelectedIndex(i);
+            jenisBuku.setId(((JenisBuku) cbJenisBuku.getSelectedItem()).getId());
+            if (jenisBuku.getId() == buku.getJenisBuku().getId()) {
+                cbJenisBuku.setSelectedIndex(i);
+                break;
+            }
+        }
+        tfNamaBuku.requestFocus();
+       
+    }
+    
+        public void isiDataCb() {
+        JenisBuku jenisBuku = new JenisBuku();
+        ArrayList<JenisBuku> list = jenisBuku.read();
+        
+            DefaultComboBoxModel model = new DefaultComboBoxModel();
+            
+            for (int i = 0; i < list.size(); i++) {
+                JenisBuku jb = list.get(i);
+                model.addElement(jb);
+            }
+            cbJenisBuku.setModel(model);
     }
 
     /**
@@ -39,9 +82,9 @@ public class BukuAdd extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         tfId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        tfNamaBarang = new javax.swing.JTextField();
+        tfNamaBuku = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        cbJenisBarang = new javax.swing.JComboBox<>();
+        cbJenisBuku = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         tfHarga = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
@@ -56,18 +99,18 @@ public class BukuAdd extends javax.swing.JFrame {
 
         jLabel1.setText("Nama Buku");
 
-        tfNamaBarang.addActionListener(new java.awt.event.ActionListener() {
+        tfNamaBuku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNamaBarangActionPerformed(evt);
+                tfNamaBukuActionPerformed(evt);
             }
         });
 
         jLabel4.setText("Jenis Barang");
 
-        cbJenisBarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cbJenisBarang.addActionListener(new java.awt.event.ActionListener() {
+        cbJenisBuku.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbJenisBuku.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbJenisBarangActionPerformed(evt);
+                cbJenisBukuActionPerformed(evt);
             }
         });
 
@@ -111,8 +154,8 @@ public class BukuAdd extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tfId)
-                            .addComponent(tfNamaBarang, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
-                            .addComponent(cbJenisBarang, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfNamaBuku, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                            .addComponent(cbJenisBuku, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfHarga)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,10 +182,10 @@ public class BukuAdd extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(tfNamaBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNamaBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbJenisBarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbJenisBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -158,9 +201,9 @@ public class BukuAdd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfNamaBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNamaBarangActionPerformed
+    private void tfNamaBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNamaBukuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfNamaBarangActionPerformed
+    }//GEN-LAST:event_tfNamaBukuActionPerformed
 
     private void tfHargaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHargaKeyTyped
         char enter = evt.getKeyChar();
@@ -172,11 +215,11 @@ public class BukuAdd extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-        JenisBuku jbComboBox = ((JenisBuku) cbJenisBarang.getSelectedItem());
-
+        JenisBuku jb = (JenisBuku)cbJenisBuku.getSelectedItem();
+        
         Buku buku = new Buku();
-        buku.setNamaBuku(tfNamaBarang.getText());
-        buku.setJenisBuku(jbComboBox);
+        buku.setNamaBuku(tfNamaBuku.getText());
+        buku.setJenisBuku(jb);
         buku.setHarga(Float.parseFloat(tfHarga.getText()));
 
         if(tfId.getText().equals("NULL")){
@@ -200,9 +243,9 @@ public class BukuAdd extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void cbJenisBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJenisBarangActionPerformed
+    private void cbJenisBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbJenisBukuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbJenisBarangActionPerformed
+    }//GEN-LAST:event_cbJenisBukuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,7 +283,7 @@ public class BukuAdd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbJenisBarang;
+    private javax.swing.JComboBox<String> cbJenisBuku;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
@@ -250,6 +293,6 @@ public class BukuAdd extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField tfHarga;
     private javax.swing.JTextField tfId;
-    private javax.swing.JTextField tfNamaBarang;
+    private javax.swing.JTextField tfNamaBuku;
     // End of variables declaration//GEN-END:variables
 }
