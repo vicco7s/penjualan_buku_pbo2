@@ -52,7 +52,6 @@ public class MainKasir extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
@@ -188,7 +187,12 @@ public class MainKasir extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("History");
+        jButton3.setText("transaksi");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Logout");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -201,19 +205,26 @@ public class MainKasir extends javax.swing.JFrame {
 
         jMenu1.setText("Pengelolaan Data");
 
-        jMenuItem1.setText("Penjualan");
+        jMenuItem1.setText("Pelanggan");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Pending");
+        jMenuItem2.setText("Penjualan");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("History");
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu3.setText("UbahPassword");
-        jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Keluar");
 
@@ -315,6 +326,24 @@ public class MainKasir extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        PelangganFrame plgFrame = new PelangganFrame();
+        plgFrame.setLocationRelativeTo(null);
+        plgFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       PenjualanView penjualanView = new PenjualanView();
+        penjualanView.setLocationRelativeTo(null);
+        penjualanView.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        TransaksiView transaksiView = new TransaksiView();
+        transaksiView.setLocationRelativeTo(null);
+        transaksiView.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -366,7 +395,6 @@ public class MainKasir extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
