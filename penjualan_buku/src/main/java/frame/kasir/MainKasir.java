@@ -190,7 +190,12 @@ public class MainKasir extends javax.swing.JFrame {
 
         jButton3.setText("History");
 
-        jButton4.setText("Ubah Password");
+        jButton4.setText("Logout");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Login Kasir");
 
@@ -291,14 +296,24 @@ public class MainKasir extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       PelangganFrame plgFrame = new PelangganFrame();
+        PelangganFrame plgFrame = new PelangganFrame();
         plgFrame.setLocationRelativeTo(null);
         plgFrame.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      // TODO add your handling code here: 
+      PenjualanView penjualanView = new PenjualanView();
+        penjualanView.setLocationRelativeTo(null);
+        penjualanView.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       Pref pref = new Pref();
+        pref.hapus();
+        dispose();
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

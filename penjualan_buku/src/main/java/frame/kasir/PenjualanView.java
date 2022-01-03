@@ -2,25 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package frame.owner;
+package frame.kasir;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import model.Buku;
-import model.JenisBuku;
+import model.Penjualan;
 
 /**
  *
  * @author cero
  */
-public class BukuView extends javax.swing.JFrame {
+public class PenjualanView extends javax.swing.JFrame {
 
     /**
-     * Creates new form BukuView
+     * Creates new form PenjualanView
      */
-    public BukuView() {
+    public PenjualanView() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -41,7 +40,6 @@ public class BukuView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -54,9 +52,9 @@ public class BukuView extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
-        jLabel2.setText("Data Buku");
+        jLabel2.setText("Data Penjualan");
 
-        jLabel1.setText("Cari Buku");
+        jLabel1.setText("Cari Penjualan");
 
         tfCari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +74,7 @@ public class BukuView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nama Buku", "Jenis Buku", "Harga"
+                "Id", "Nama Pelanggan", "Nama Buku", "Harga Jual", "jumlah"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -85,13 +83,6 @@ public class BukuView extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Ubah");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
             }
         });
 
@@ -121,50 +112,51 @@ public class BukuView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(287, 287, 287)
+                .addGap(315, 315, 315)
                 .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfCari)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton6))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(tfCari)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
                 .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 712, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton6))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton2)
-                        .addComponent(jButton3)
-                        .addComponent(jButton4))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5)
-                        .addComponent(jButton6)))
+                        .addComponent(jButton4)
+                        .addComponent(jButton5))
+                    .addComponent(jButton6))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -176,32 +168,15 @@ public class BukuView extends javax.swing.JFrame {
     }//GEN-LAST:event_tfCariActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Buku buku = new Buku();
-        ArrayList<Buku> list = buku.search(tfCari.getText());
+        Penjualan penjualan = new Penjualan();
+        ArrayList<Penjualan> list = penjualan.search(tfCari.getText());
         tampilkanData(list);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        BukuAdd bukuAdd = new BukuAdd();
-        bukuAdd.setVisible(true);
+        PenjualanAdd penjualanAdd = new PenjualanAdd();
+        penjualanAdd.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        TableModel model = jTable1.getModel();
-        int barisTerpilih = jTable1.getSelectedRow();
-
-        if(barisTerpilih >= 0){
-            Buku buku = new Buku();
-            String idTable = model.getValueAt(barisTerpilih,0).toString();
-            int idInt = Integer.parseInt(idTable);
-            buku.setId(idInt);
-            BukuAdd bukuAdd = new BukuAdd(buku);
-            bukuAdd.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Pilih dulu datanya");
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         TableModel model = jTable1.getModel();
@@ -214,11 +189,11 @@ public class BukuView extends javax.swing.JFrame {
                 JOptionPane.YES_NO_OPTION);
 
             if(pilihan == 0){
-                JenisBuku jenisBuku = new JenisBuku();
+                Penjualan penjualan = new Penjualan();
                 String idTable = model.getValueAt(barisTerpilih,0).toString();
                 int idInt = Integer.parseInt(idTable);
-                jenisBuku.setId(idInt);
-                jenisBuku.delete();
+                penjualan.setId(idInt);
+                penjualan.delete();
             }
 
         } else {
@@ -227,8 +202,8 @@ public class BukuView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Buku buku = new Buku();
-        ArrayList<Buku> list = buku.read();
+        Penjualan penjualan = new Penjualan();
+        ArrayList<Penjualan> list = penjualan.read();
         tampilkanData(list);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -237,29 +212,30 @@ public class BukuView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        Buku buku = new Buku();
-        ArrayList<Buku> list = buku.read();
+        Penjualan penjualan = new Penjualan();
+        ArrayList<Penjualan> list = penjualan.read();
         tampilkanData(list);
     }//GEN-LAST:event_formWindowActivated
 
-        private void tampilkanData(ArrayList<Buku> list) {
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+    private void tampilkanData(ArrayList<Penjualan> list) {
+         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
         
         if(list.size() > 0){
-            Object[] row = new Object[4];
+            Object[] row = new Object[5];
             
             for (int i = 0; i < list.size(); i++) {
                 row[0] = list.get(i).getId();
-                row[1] = list.get(i).getNamaBuku();
-                row[2] = list.get(i).getJenisBuku().getNamajenisbuku();
-                row[3] = list.get(i).getHarga();
+                row[1] = list.get(i).getPelanggan().getNamapelanggan();
+                row[2] = list.get(i).getBuku().getNamaBuku();
+                row[3] = list.get(i).getHargajual();
+                row[4] = list.get(i).getJumlah();
                 
                 model.addRow(row);
             }
             
         }
-        }
+    }
         
     /**
      * @param args the command line arguments
@@ -278,20 +254,20 @@ public class BukuView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BukuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PenjualanView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BukuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PenjualanView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BukuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PenjualanView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BukuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PenjualanView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BukuView().setVisible(true);
+                new PenjualanView().setVisible(true);
             }
         });
     }
@@ -299,7 +275,6 @@ public class BukuView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;

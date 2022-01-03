@@ -25,6 +25,13 @@ public class Buku {
     
     private Database database;
     private Connection connection;
+
+    @Override
+    public String toString() {
+        return namaBuku;
+    }
+    
+    
     
     public boolean create(){
         String insertSQL = "INSERT INTO buku VALUES (NULL, ?, ?, ?)";
